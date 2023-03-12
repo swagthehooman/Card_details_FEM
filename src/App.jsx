@@ -34,13 +34,6 @@ function App() {
     console.log(isValid)
   }
   //use for changing the form confirmation looks and other things
-  useEffect(() => {
-    first
-  
-    return () => {
-      second
-    }
-  }, [third])
   
 
     return (
