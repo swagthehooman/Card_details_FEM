@@ -1,0 +1,304 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+    height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* my styles */
+
+:root{
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-light-grayish-violet: hsl(270, 3%, 87%);
+  --clr-neutral-dark-grayish-violet: hsl(279, 6%, 55%);
+  --clr-neutral-very-dark-violet: hsl(278, 68%, 11%);
+  --ff-base:'Space Grotesk', sans-serif;
+  --fw-base:500;
+  --fs-base:18px;
+}
+
+body{
+  max-height: 100vh;
+  font-family: var(--ff-base);
+  font-size: var(--fs-base);
+  line-height: 1;
+}
+
+main{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+.form-container {
+  width: 90%;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+}
+
+input{
+  outline: none;
+  border-radius: 5px;
+  border:2px solid hsl(270, 3%, 87%);
+  padding: 0.5rem;
+  color: var(--clr-neutral-very-dark-violet);
+}
+
+input:focus{
+  border: double 2px transparent;
+  border-radius: 5px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* input:active{
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, hsl(249, 99%, 64%),hsl(278, 94%, 30%) ) border-box;
+} */
+
+input::placeholder {
+  color: var(--clr-neutral-light-grayish-violet);
+  text-align: left;
+}
+
+button{
+  background-color: var(--clr-neutral-very-dark-violet);
+  color: var(--clr-neutral-white);
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 0 1rem 0;
+  border-radius: 5px;
+}
+
+.card-holder{
+  background-image: url('./images/bg-main-mobile.png');
+  background-repeat: no-repeat;
+  background-size:cover ;
+  
+}
+
+.card-front{
+  z-index: 2;
+  left: 5%;
+  top: 22%;
+}
+
+.card-back{
+  right: 5%;
+  top: 5%;
+}
+
+.card-front,.card-back{
+  position:absolute;
+  width: min-content;
+  color: var(--clr-neutral-white);
+  letter-spacing: 0.1rem;
+}
+
+.card-back__bg, .card-front__bg{
+  max-width: revert;
+}
+
+.card-back>*:not(.card-back__bg),
+.card-front > *:not(.card-front__bg){
+  position: absolute;
+}
+
+.card-front__logo{
+  top: 8%;
+  left: 5%;
+}
+
+.card-front__number{
+  font-size: 1.8rem;
+  bottom: 30%;
+  left: 5%;
+}
+
+.card-front__name{
+  font-size: 0.8rem;
+  left:5%;
+  bottom: 12%;
+}
+
+.card-front__validity{
+  font-size: 0.8rem;
+  right: 5%;
+  bottom: 12%;
+}
+
+.card-back__cvv{
+  font-size: 1rem;
+  top:45.5%;
+  right: 12%;
+}
+
+.input-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 68px 0 0 0;
+}
+
+.cardholder-info{
+  margin: 0 0 1.4rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-cvv-date{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.exp-date{
+  display: flex;
+  flex-direction: column;
+}
+
+.date{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.date>input{
+  width: 100%;
+}
+
+.cvv{
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  position: sticky;
+  top: 100%;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 1000px) {
+  .card-front,.card-back{
+    inset: revert;
+    position: relative;
+  }
+  .card-holder{
+    background-image: url('./images/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .card-front{
+    top: 18%;
+    left: 28%;
+  }
+  .card-back{
+    top: 22%;
+    left: 45%;
+  }
+
+  .input-form{
+    padding: 0;
+  }
+
+  .form-container{
+    width: 50%;
+  }
+
+  main{
+    grid-template-columns: 1fr 2fr;
+    max-height: 100vh;
+  }
+}
