@@ -13,7 +13,11 @@ function App() {
     'year':'',
     'cvv':'',
   })
-  const [isValid, setIsValid]=useState(false)
+  const [isValid, setIsValid]=useState({
+    'numberFormat':false,
+    'nullInput':false,
+    'inputLength':false
+  })
 
   function handleChange(event){
       const {name,value}=event.target
@@ -25,13 +29,37 @@ function App() {
   }
 
   function handleConfirm(event){
-    if(cardInfo.cardNumber.length==16 && cardInfo.cardName.length!==0 && cardInfo.month.length==2 && cardInfo.year.length==2 && cardInfo.cvv.length==3){
-        setIsValid(true)
+
+    var cardNumber=cardInfo.cardNumber
+    var cardName=cardInfo.cardName
+    var cvv=cardInfo.cvv
+    var mon=cardInfo.month
+    var yr=cardInfo.year
+
+    let temp=''
+
+    for(let i=0;i<16;i++){
+        if(i%4==0 && i!==0)
+          temp+=' '
+        else
+          temp+=cardName.charAt(i)
     }
-    else{
-      setIsValid(false)
-    }
-    console.log(isValid)
+
+      cardName=temp
+      console.log(cardName)
+      // if(cardName===''||cardNumber===''|| cvv===''|| mon===''|| yr===''){
+      //   setIsValid(prev=>({
+      //     ...prev,
+      //     'nullInput':true
+      //   }))
+      // }
+      // if(cardNumber.length!==19 || cvv.length!==3 || mon.length!==2 || yr.length!==2){
+      //   setIsValid(prev=>({
+      //     ...prev,
+      //     'inputLength':true
+      //   }))
+      // if()
+      // }
   }
   //use for changing the form confirmation looks and other things
   
