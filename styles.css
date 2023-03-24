@@ -152,6 +152,12 @@ button{
   border-radius: 5px;
 }
 
+.error{
+  padding: 0.5rem 0 0 0;
+  font-size: 0.8rem;
+  color: red;
+}
+
 .card-holder{
   background-image: url('./images/bg-main-mobile.png');
   background-repeat: no-repeat;
