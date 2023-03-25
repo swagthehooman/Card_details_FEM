@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function CardForm(props) {
   return (
     <div className="input-form">
@@ -23,7 +22,7 @@ export default function CardForm(props) {
             onChange={props.handleChange}
             value={props.cardInfo.cardNumber}
           />
-          {!props.validation.cardNumberValid && (
+          {props.loadConfirm && !props.validation.cardNumberValid && (
             <p className="error">Wrong format, numbers only.</p>
           )}
         </div>
@@ -39,7 +38,7 @@ export default function CardForm(props) {
                   onChange={props.handleChange}
                   value={props.cardInfo.month}
                 />
-                {!props.validation.monthValid && (
+                {props.loadConfirm && !props.validation.monthValid && (
                   <p className="error">Wrong format.</p>
                 )}
               </div>
@@ -51,7 +50,7 @@ export default function CardForm(props) {
                   onChange={props.handleChange}
                   value={props.cardInfo.year}
                 />
-                {!props.validation.yearValid && (
+                {props.loadConfirm && !props.validation.yearValid && (
                   <p className="error">Wrong format.</p>
                 )}
               </div>
@@ -66,7 +65,7 @@ export default function CardForm(props) {
               onChange={props.handleChange}
               value={props.cardInfo.cvv}
             />
-            {!props.validation.cvvValid && (
+            {props.loadConfirm && !props.validation.cvvValid && (
               <p className="error">Wrong format.</p>
             )}
           </div>

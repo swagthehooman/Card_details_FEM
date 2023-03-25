@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardForm from "./components/CardForm";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
-
+import Completion from "./components/Completion";
 function App() {
   const cardRegex = new RegExp("^[0-9]{16}$");
   const cvvRegex = new RegExp("^[1-9][0-9]{2}$");
@@ -23,6 +23,8 @@ function App() {
     cvvValid: false,
   });
 
+  const [confirm, setConfirm] = useState(false);
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -33,7 +35,7 @@ function App() {
   }
 
   function handleConfirm(event) {
-    setConfirm((prev) => !prev);
+    setConfirm(true);
     var number = cardInfo.cardNumber;
     var month = cardInfo.month;
     var year = cardInfo.year;
@@ -86,6 +88,13 @@ function App() {
     console.log(isValid);
   }
   //use for changing the form confirmation looks and other things
+  var satisfied =
+    isValid.cardNumberValid &&
+    isValid.cvvValid &&
+    isValid.monthValid &&
+    isValid.yearValid
+      ? true
+      : false;
 
   return (
     <main>
@@ -93,12 +102,17 @@ function App() {
         <CardFront cardFrontInfo={cardInfo} />
         <CardBack cardBackInfo={cardInfo} />
       </div>
-      <CardForm
-        handleChange={handleChange}
-        cardInfo={cardInfo}
-        confirm={handleConfirm}
-        validation={isValid}
-      />
+      {satisfied ? (
+        <Completion />
+      ) : (
+        <CardForm
+          handleChange={handleChange}
+          cardInfo={cardInfo}
+          confirm={handleConfirm}
+          validation={isValid}
+          loadConfirm={confirm}
+        />
+      )}
     </main>
   );
 }
