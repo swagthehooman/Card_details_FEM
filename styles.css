@@ -104,21 +104,19 @@ img{
   display: block;
 }
 
-.form-container {
-  width: 90%;
-}
-
 label {
   font-size: 12px;
   margin-bottom: 0.3rem;
 }
 
 input{
+  width: 100%;
   outline: none;
   border-radius: 5px;
   border:2px solid hsl(270, 3%, 87%);
   padding: 0.5rem;
   color: var(--clr-neutral-very-dark-violet);
+  box-sizing: border-box;
 }
 
 input:focus{
@@ -169,7 +167,7 @@ button{
 .card-front{
   z-index: 2;
   left: 5%;
-  top: 22%;
+  top: 24%;
 }
 
 .card-back{
@@ -227,7 +225,11 @@ button{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 68px 0 0 0;
+  padding: 50px 0 0 0;
+}
+
+.form-container {
+  padding: 1rem;
 }
 
 .cardholder-info{
@@ -235,11 +237,12 @@ button{
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .exp-cvv-date{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2 ,1fr);
   gap: 0.8rem;
+  display: flex;
 }
 
 .exp-date{
@@ -255,15 +258,32 @@ button{
 .cvv{
   display: flex;
   flex-direction: column;
+} */
+
+.exp-cvv-date{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}
+
+.date{
+  display: flex;
+  gap: 0.3rem;
 }
 
 .completion{
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 1.5rem;
+}
+
+.completion>h1{
+  letter-spacing: 0.2rem;
+  font-weight: var(--fw-base);
 }
 
 .complete-img{
@@ -273,7 +293,7 @@ button{
 .details{
   padding: 1rem 0 0 0;
   font-size: 1rem;
-  color: var(--clr-neutral-light-grayish-violet);
+  color: var(--clr-neutral-dark-grayish-violet)
 }
 
 footer {
