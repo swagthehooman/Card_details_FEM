@@ -158,7 +158,7 @@ button{
 }
 
 .card-holder{
-  background-image: url('./images/bg-main-mobile.png');
+  background-image: url('../images/bg-main-mobile.png');
   background-repeat: no-repeat;
   background-size:cover ;
   
@@ -316,7 +316,7 @@ footer {
     position: relative;
   }
   .card-holder{
-    background-image: url('./images/bg-main-desktop.png');
+    background-image: url('../images/bg-main-desktop.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
